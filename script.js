@@ -1,24 +1,32 @@
-// Form validation for signup
-document.querySelector('form[action="/signup"]')?.addEventListener('submit', (event) => {
-  const password = document.getElementById('signup-password').value;
-  const confirmPassword = document.getElementById('signup-confirm-password').value;
+// Get elements
+const loginBtn = document.querySelector('.login-btn');
+const overlay = document.querySelector('.overlay');
+const popup = document.querySelector('.popup');
+const closeBtn = document.querySelector('.close-btn');
+const userBtn = document.querySelector('.user-btn');
+const ownerBtn = document.querySelector('.owner-btn');
 
-  if (password !== confirmPassword) {
-    alert('Passwords do not match! Please try again.');
-    event.preventDefault(); // Prevent form submission
-  } else if (password.length < 6) {
-    alert('Password must be at least 6 characters long.');
-    event.preventDefault(); // Prevent form submission
-  }
+// Open popup
+loginBtn.addEventListener('click', () => {
+    overlay.style.display = 'block';
+    popup.style.display = 'block';
 });
 
-// Form validation for login
-document.querySelector('form[action="/login"]')?.addEventListener('submit', (event) => {
-  const email = document.getElementById('login-email').value;
-  const password = document.getElementById('login-password').value;
+// Close popup
+closeBtn.addEventListener('click', () => {
+    overlay.style.display = 'none';
+    popup.style.display = 'none';
+});
 
-  if (!email || !password) {
-    alert('Please fill out both email and password fields.');
-    event.preventDefault(); // Prevent form submission
-  }
+// User/Owner action
+userBtn.addEventListener('click', () => {
+    alert('Open User Login/Sign In Form');
+    overlay.style.display = 'none';
+    popup.style.display = 'none';
+});
+
+ownerBtn.addEventListener('click', () => {
+    alert('Open Owner Login/Sign In Form');
+    overlay.style.display = 'none';
+    popup.style.display = 'none';
 });
